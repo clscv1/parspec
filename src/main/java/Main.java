@@ -50,11 +50,6 @@ public class Main {
             workerService.shutdown();
         }));
 
-        Signal.handle(new Signal("TERM"), sig -> {
-            System.out.println("Received SIGTERM, shutting down.");
-            workerService.shutdown();
-        });
-
 
     }
 }
