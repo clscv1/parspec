@@ -2,8 +2,8 @@ const http = require('http');
 const https = require('https');
 const startTime = Date.now()
 // API Configuration
-const API_URL = 'http://localhost:4567/order/accept';
-const TOTAL_REQUESTS = 10000; // Total number of requests
+const API_URL = 'http://13.60.40.37:4567/order/accept';
+const TOTAL_REQUESTS = 1000; // Total number of requests
 const CONCURRENT_REQUESTS = 1000; // Requests sent at a time
 
 // Determine whether to use HTTP or HTTPS module
