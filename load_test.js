@@ -1,12 +1,11 @@
 const http = require('http');
 const https = require('https');
 const startTime = Date.now()
-// API Configuration
-const API_URL = 'http://13.60.40.37:4567/order/accept';
-const TOTAL_REQUESTS = 1000; // Total number of requests
-const CONCURRENT_REQUESTS = 1000; // Requests sent at a time
 
-// Determine whether to use HTTP or HTTPS module
+const API_URL = 'http://13.60.40.37:4567/order/accept';
+const TOTAL_REQUESTS = 1000; 
+const CONCURRENT_REQUESTS = 1000;
+
 const url = new URL(API_URL);
 const httpModule = url.protocol === 'https:' ? https : http;
 
@@ -17,7 +16,7 @@ const requestData = JSON.stringify({
     totalAmount: 100
 });
 
-// Function to send a single request
+
 function sendRequest(iteration) {
     return new Promise((resolve, reject) => {
         const options = {
@@ -56,7 +55,6 @@ function sendRequest(iteration) {
     });
 }
 
-// Function to run requests in batches
 async function runLoadTest() {
     console.log(`Starting load test: ${TOTAL_REQUESTS} requests, ${CONCURRENT_REQUESTS} concurrent...`);
     
@@ -69,12 +67,12 @@ async function runLoadTest() {
             batch.push(sendRequest(completedRequests + i + 1));
         }
 
-        await Promise.all(batch);  // Wait for batch to complete
+        await Promise.all(batch); 
         completedRequests += batchSize;
     }
 
     console.log("Load test completed.");
 }
 
-// Run the load test
+
 runLoadTest();
