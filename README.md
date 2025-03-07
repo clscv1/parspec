@@ -16,6 +16,7 @@ curl --location 'http://13.60.40.37:4567/order/accept' \
 3. Get Metrics:
 curl --location 'http://13.60.40.37:4567/metrics' \
 --data ''
+Load testing can be done by running node load_test.js.
 
 # Design Decisions
 
